@@ -16,15 +16,15 @@ class _HomePageState extends State<HomePage> {
   static double birdY = 0;
   double initialPos = birdY;
   double height = 0;
-  double time = 0;
+  double time = 0.5;
   double gravity = -4.9;
-  double velocity = 3.5;
+  double velocity = 2.8;
 
   bool gameHasStarted = false;
 
   void startGame() {
     gameHasStarted = true ;
-    Timer.periodic(Duration(milliseconds: 10), (timer){
+    Timer.periodic(Duration(milliseconds: 80), (timer){
       height = gravity * time * time + velocity * time;
 
 
@@ -49,6 +49,51 @@ class _HomePageState extends State<HomePage> {
       time += 0.1;
     });
   }
+
+void resetGame(){
+  Navigator.pop(context);
+  setState(() {
+    birdY = 0;
+    gameHasStarted = false;
+    time = 0;
+    initialPos = birdY;
+  });
+}
+
+void _showDialog(){
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.brown,
+        title: Center(
+          child: Text(
+            "G A M E   O V E R",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        actions: [
+          GestureDetector(
+            onTap: resetGame,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                padding: EdgeInsets.all(7),
+                color: Colors.white,
+                child: Center( 
+                child: Text(
+                  "PLAY AGAIN",
+                  style: TextStyle(color: Colors.brown),
+                ),
+                ),
+              ),
+              ),
+          )
+        ],
+      );
+    });
+}
  
  void jump(){
   setState(() {
@@ -83,9 +128,11 @@ class _HomePageState extends State<HomePage> {
                       birdY: birdY,
                     ),
                     Container(
+                      child: Center( 
                       child: Text(
                         gameHasStarted ? '':'P L A Y',
-                        style: TextStyle(color: Colors.white , fontSize: 20),
+                        style: TextStyle(color: Colors.white , fontSize: 40 , height: -4),
+                      ),
                       ),
                     )
                   ],
