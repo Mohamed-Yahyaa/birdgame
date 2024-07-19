@@ -12,7 +12,7 @@ class MyBird extends StatelessWidget {
     return Container(
       alignment: Alignment(0, birdY),
      
-     child: Image.asset('lib/images/bid.png',width: 50, ),
+     child: Image.asset('lib/images/der.png',width: 170, ),
     );
   }
 }
