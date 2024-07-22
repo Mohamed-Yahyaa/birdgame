@@ -14,8 +14,8 @@ class MyBarrier extends StatelessWidget {
       width: 100,
       height: size,
       decoration: BoxDecoration(
-        color: Colors.grey[850],
-        border: Border.all(width: 10,color: Colors.grey),
+        color: Colors.green[300],
+        border: Border.all(width: 10,color: Colors.green),
         borderRadius: BorderRadius.circular(15)
 
       ),

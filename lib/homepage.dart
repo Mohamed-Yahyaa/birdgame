@@ -39,23 +39,23 @@ class _HomePageState extends State<HomePage> {
   int _currentScore = 0;
   int _bestScore = 0;
 
-  final AudioPlayer _backgroundMusicPlayer = AudioPlayer();
+  // final AudioPlayer _backgroundMusicPlayer = AudioPlayer();
   final AudioPlayer _gameOverPlayer = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
-    _playBackgroundMusic();
+    // _playBackgroundMusic();
   }
 
-  void _playBackgroundMusic() async {
-    try {
-      await _backgroundMusicPlayer.play(AssetSource('sound.mp3'), volume: 0.5);
-      _backgroundMusicPlayer.setReleaseMode(ReleaseMode.loop);
-    } catch (e) {
-      print("Error playing background music: $e");
-    }
-  }
+  // void _playBackgroundMusic() async {
+  //   try {
+  //     await _backgroundMusicPlayer.play(AssetSource('sound.mp3'), volume: 0.5);
+  //     _backgroundMusicPlayer.setReleaseMode(ReleaseMode.loop);
+  //   } catch (e) {
+  //     print("Error playing background music: $e");
+  //   }
+  // }
 
   void _playGameOverSound() async {
     try {
@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
-    _backgroundMusicPlayer.dispose();
+    // _backgroundMusicPlayer.dispose();
     _gameOverPlayer.dispose();
     super.dispose();
   }
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               flex: 3,
               child: Container(
-                color: Colors.blueGrey[300],
+                color: Colors.lightBlue[200],
                 child: Center(
                   child: Stack(
                     children: [
@@ -240,11 +240,11 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               height: 15,
-              color: Colors.grey[300],
+              color: Colors.yellow[100],
             ),
             Expanded(
               child: Container(
-                color: Colors.grey[600],
+                color: Colors.brown[400],
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
